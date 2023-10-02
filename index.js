@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-//http://localhost:3000/lucero/123
+//http://localhost:3000/viridiana/123
 app.get('/', (req, res) => {
     res.json({msg: 'Hola GET'})
 })
@@ -16,6 +16,18 @@ app.get('/:user/:password', (req, res) => { //Endpoint
         return
     }
     res.status(404).json({msg: 'Wrong user or password'})
+})
+
+app.post('/login', (req, res) => {
+    const body = req.body
+
+    res.json(body)
+})
+
+app.post("/", (req,res) => {
+    const body =req.body
+
+    res.json({msg:'Hola POST!'})
 })
 
 //http://localhost:3000/login?fullname=viridiana%20herrera%20lavalle
